@@ -1,0 +1,12 @@
+{
+    "name": "trex/graphite-client",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "trex\\graphite\\": "src/"
+        }
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.4"
+    }
+}
