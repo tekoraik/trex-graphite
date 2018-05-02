@@ -1,7 +1,7 @@
 <?php
 namespace trex\graphite;
 
-class TcpClient
+class TcpClient implements Client
 {
     private $socket;
 

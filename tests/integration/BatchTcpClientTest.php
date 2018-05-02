@@ -3,16 +3,16 @@
 /**
  * @property \trex\graphite\TcpClient client
  */
-class TcpClientTest extends \Codeception\Test\Unit
+class BatchTcpClientTest extends \Codeception\Test\Unit
 {
     /**
      * @var \IntegrationTester
      */
     protected $tester;
-    
+
     protected function _before()
     {
-        $this->client = new \trex\graphite\TcpClient('localhost', 2003);
+        $this->client = new \trex\graphite\BatchTcpClient('localhost', 2003, 100);
     }
 
     protected function _after()
@@ -23,7 +23,7 @@ class TcpClientTest extends \Codeception\Test\Unit
     public function testWorkProperly()
     {
         for ($i = 1; $i < 1000; ++$i) {
-            $this->client->increment('test.foo.bar', $i);
+            $this->client->increment('testbatch.foo.bar', $i);
             usleep(1000);
         }
         $this->client->close();
